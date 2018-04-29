@@ -1,5 +1,7 @@
+$header-img: image-url('../images/image.gif', false, false);
+
 .bg {
-  background: url('../../images/image.jpg') no-repeat;
+  background-image: $header-img;
   width: 100%;
   height: 100vh;
 }

@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: './src/index.tsx',
@@ -21,25 +22,13 @@ module.exports = {
         loader: 'source-map-loader'
       },
       {
-        test: '/\.scss$/',
+        test: /\.s?[ac]ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              importLoader: 2
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          'import-glob-loader'                     
-        ]
-      }
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
+      }      
     ]
   },
   plugins: [
@@ -47,7 +36,7 @@ module.exports = {
       template: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'bundle.css',
+      filename: '[name].css',
       chunkFilename: '[id].css'
     })
   ],
