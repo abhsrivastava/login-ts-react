@@ -1,5 +1,4 @@
 import * as React from 'react'
-require('../styles/style.scss')
 import '../styles/style'
 
 export class Login extends React.Component<LoginProps, LoginState>{

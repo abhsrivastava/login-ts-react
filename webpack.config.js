@@ -22,11 +22,24 @@ module.exports = {
         loader: 'source-map-loader'
       },
       {
-        test: /\.s?[ac]ss$/,
+        test: /\.scss$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: ["styles/"]
+            }
+          },
         ],
       }      
     ]
@@ -36,8 +49,8 @@ module.exports = {
       template: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     })
   ],
   devtool: 'source-map',
