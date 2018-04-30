@@ -1,11 +1,12 @@
 import * as React from 'react'
+import '../styles/style.scss'
 
 export class Login extends React.Component<LoginProps, LoginState>{
   constructor(props: LoginProps) {
     super(props)
   }
   render() { return (
-    <form className="col-md-4">
+    <form className="col-md-4 form-container">
       <div className="form-group">
         <label htmlFor="inputEmail">Email</label>
         <input type="email" className="form-control" id="inputEmail" placeholder="Email"/>
@@ -19,7 +20,7 @@ export class Login extends React.Component<LoginProps, LoginState>{
           <input id="rem" type="checkbox" />Remember Me
         </label>
       </div>
-      <button type="submit" className="btn btn-default">Submit</button>
+      <button type="submit" className="btn btn-success btn-block">Submit</button>
     </form>
   )}
 }
