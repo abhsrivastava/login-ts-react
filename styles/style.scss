@@ -1,6 +1,7 @@
 $header-img: url('../images/image.jpg');
 .bg {
   background: $header-img no-repeat;
+  background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
