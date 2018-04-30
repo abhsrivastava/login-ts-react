@@ -39,9 +39,13 @@ module.exports = {
               sourceMap: true,
               includePaths: ["styles/"]
             }
-          },
-        ],
-      }      
+          }
+        ]
+      },
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader"
+      }       
     ]
   },
   plugins: [
@@ -55,6 +59,6 @@ module.exports = {
   ],
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.scss', '.jpg']
   }
 }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import '../styles/style'
 
 export class Login extends React.Component<LoginProps, LoginState>{
   constructor(props: LoginProps) {
